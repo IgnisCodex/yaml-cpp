@@ -2,12 +2,12 @@ project "yaml-cpp"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 	targetdir ("%{wks.location}/build/bin/" .. OUTPUT_DIR .. "/%{prj.name}")
 	objdir ("%{wks.location}/build/int/" .. OUTPUT_DIR .. "/%{prj.name}")
 
 	files {
-		"src/**h",
+		"src/**.h",
 		"src/**.cpp",
 		"include/**.h"
 	}
@@ -15,6 +15,8 @@ project "yaml-cpp"
 	includedirs {
 		"include"
 	}
+
+	defines { "YAML_CPP_STATIC_DEFINE" }
 
 	filter "system:windows"
 		systemversion "latest"

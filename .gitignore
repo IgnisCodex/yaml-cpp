@@ -3,3 +3,4 @@ build/
 /bazel-*
 *.vcxproj
 *.vcxproj.filters
+*vcxproj.user

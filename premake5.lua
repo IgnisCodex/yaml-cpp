@@ -1,4 +1,4 @@
-project "yaml-cpp"
+project "Yaml-CPP"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++20"
@@ -17,3 +17,18 @@ project "yaml-cpp"
 	}
 
 	defines { "YAML_CPP_STATIC_DEFINE" }
+
+	filter "system:windows"
+		systemversion "latest"
+
+	filter "configurations:Debug"
+		runtime "Debug"
+		symbols "on"
+
+	filter "configurations:Release"
+		runtime "Release"
+		optimize "on"
+
+	filter "configurations:Distribution"
+		runtime "Release"
+		optimize "on"
